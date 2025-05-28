@@ -9,7 +9,10 @@ import io.ktor.server.routing.*
 fun Application.configureRouting() {
     routing {
         get("/") {
-            call.respondText("Hello World!")
+            call.respondText("Sage Bridge is runningQ")
+        }
+        post("/exectue") {
+            call.responseText
         }
     }
 }
