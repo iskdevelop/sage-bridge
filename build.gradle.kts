@@ -5,7 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.plugin.serialization)
 }
 
-group = "con.iskportal"
+group = "com.iskportal"
 version = "0.0.1"
 
 application {
@@ -27,3 +27,8 @@ dependencies {
     testImplementation(libs.kotlin.test.junit)
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(20))
+    }
+}

@@ -1,4 +1,4 @@
-package con.iskportal
+package com.iskportal
 
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
