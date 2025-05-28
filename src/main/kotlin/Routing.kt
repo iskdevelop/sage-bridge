@@ -1,4 +1,4 @@
-package con.iskportal
+package com.iskportal
 
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
@@ -9,10 +9,21 @@ import io.ktor.server.routing.*
 fun Application.configureRouting() {
     routing {
         get("/") {
-            call.respondText("Sage Bridge is runningQ")
+            call.respondText("Sage Bridge is running!")
         }
-        post("/exectue") {
-            call.responseText
+
+        get("/health"){
+            call.respondText("OK")
         }
+
+
+        // Means of interacting with the server for mathematical expression handling
+        post("/batch") {
+            call.respondText("Post to batch")
+        }
+        post("/execute") {
+            call.respondText("Post to execute")
+        }
+
     }
 }
