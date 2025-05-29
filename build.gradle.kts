@@ -14,7 +14,9 @@ application {
 
 repositories {
     mavenCentral()
+    maven { url = uri("https://www.jitpack.io") }
 }
+
 
 dependencies {
     implementation(libs.ktor.server.content.negotiation)
@@ -25,10 +27,12 @@ dependencies {
     implementation(libs.ktor.server.config.yaml)
     testImplementation(libs.ktor.server.test.host)
     testImplementation(libs.kotlin.test.junit)
+
+    // Using integrations with Jupyter to interact with a session of SageMath.
+    implementation("com.github.SpencerPark:jupyter-jvm-basekernel:v2.3.0")
 }
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(20))
-    }
+tasks.withType<JavaExec> {
+    // Let JVM find native libs (JNI and JEP)
+    systemProperty("java.library.path", "${projectDir}/native")
 }
